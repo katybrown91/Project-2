@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+
 //const router = require('../routes/auth');
 //app.use('/', router); 
 
@@ -32,6 +33,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 //app.use('/', router); 
 app.use(session({
   secret: "basic-auth-secret",
@@ -71,6 +73,21 @@ app.use('/', router);
 
 const apiRoute = require('./routes/api');
 app.use('/', apiRoute);
+
+app.get('/messages', (req, res) => {
+  Message.find({},(err, messages)=> {
+    res.send(messages);
+  })
+})
+
+app.post('/messages', (req, res) => {
+  var message = new Message(req.body);
+  message.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
 
 // const bcrypt     = require("bcrypt");
 // const saltRounds = 10;

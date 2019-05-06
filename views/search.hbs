@@ -2,6 +2,7 @@
 
 
 {{#each books}}
+<div class = "search-form">
 <form action="/library/{{this.id}}" method="POST">
   <input readonly type="text" value = "{{this.volumeInfo.title}}" name = "title"/>
   <input readonly type="text" value = "{{this.volumeInfo.author}}" name = "author"/>

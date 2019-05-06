@@ -5,6 +5,11 @@ body {
 a {
   color: #00B7FF; }
 
+i#searcg-form {
+  all: unset;
+  width: 300px;
+  text-decoration: none; }
+
 #input-button {
   border: 1px solid black;
   padding: 5px; }

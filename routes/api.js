@@ -3,7 +3,7 @@ const router  = express.Router();
 const axios = require('axios');
 const Book = require('../models/book');
 const user = require('../models/user');
-const testArr = []
+
 
 
 //search
@@ -15,18 +15,18 @@ router.get('/search', (req, res, next) => {
   // console.log("the query ---------- ", req.query.searchInput);
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.searchInput}&key=${process.env.APIKEY}&maxResults=10`)
   .then(apiInfo => {
-    // console.log("info from API ======== ",  apiInfo.data.items[4].volumeInfo.title,apiInfo.data.items[4].volumeInfo.authors,apiInfo.data.items[4].volumeInfo.description);
-    console.log(user.schema.obj.books)
+    console.log("info from API ======== ",  apiInfo.data.items[4].volumeInfo.title,apiInfo.data.items[4].volumeInfo.authors,apiInfo.data.items[4].volumeInfo.description,
+    apiInfo.data.items[4].volumeInfo.imageLinks.thumbnail);
+   
     data = {
       title: String,
-      author: String,
-      description: []
+      authors: String,
+      description: [],
+      image: String
     }       
-    user.schema.obj.books.push(data) 
-    // user.books.push(data)
     res.render('search', {books: apiInfo.data.items});
-    console.log("This is our test array after pushing")   
-    console.log(user.schema.obj.books)    
+  
+  
   })
   .catch(err => {
     console.log("An error occurred in the catch")
@@ -49,7 +49,6 @@ router.get("/library", isLoggedIn, (req, res, next) => {
     book.userId = req.session.currentUser._id
     book.id = req.params.id; 
     const newBook = new Book(book);  
-    console.log(req.body, "ostrich")
 
     newBook.save()
     .then(newSavedBook => {
@@ -60,6 +59,19 @@ router.get("/library", isLoggedIn, (req, res, next) => {
       next(err);
     });
   });
+
+  //Delete from library
+
+  router.get("/library/delete", (req, res, next) => {
+    Book.findByIdAndRemove(req.query.book_id)
+      .then((books) => {
+        res.redirect("/library");
+      })
+      .catch(error => {
+        next(error);
+      });
+  });
+  
   
     
   
@@ -76,6 +88,11 @@ function isLoggedIn(req, res, next){
 
   }
 }
+
+
+     
+ 
+
 
 
 
