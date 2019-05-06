@@ -5,4 +5,8 @@ body {
 a {
   color: #00B7FF; }
 
+#input-button {
+  border: 1px solid black;
+  padding: 5px; }
+
 /*# sourceMappingURL=style.css.map */

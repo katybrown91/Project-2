@@ -1,0 +1,14 @@
+<h2>Search Page</h2>
+
+
+{{#each books}}
+<form action="/library/{{this.id}}" method="POST">
+  <input readonly type="text" value = "{{this.volumeInfo.title}}" name = "title"/>
+  <input readonly type="text" value = "{{this.volumeInfo.author}}" name = "author"/>
+  <input readonly type="textarea" value = "{{this.volumeInfo.description}}" name = "description"/>
+  <div class = "input-button">
+  <input type = "submit"/>
+  </div>
+  <!--<button><a href="/library">Add to library</a></button> -->
+</form>    
+{{/each}}

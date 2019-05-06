@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo")(session);
 //app.use('/', router); 
 
 mongoose
-  .connect('mongodb://localhost/prject-two', {useNewUrlParser: true})
+  .connect('mongodb://localhost/project-two', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -69,18 +69,21 @@ app.use('/', index);
 const router = require('./routes/auth');
 app.use('/', router); 
 
-const bcrypt     = require("bcrypt");
-const saltRounds = 10;
+const apiRoute = require('./routes/api');
+app.use('/', apiRoute);
 
-const plainPassword1 = "HelloWorld";
-const plainPassword2 = "helloworld";
+// const bcrypt     = require("bcrypt");
+// const saltRounds = 10;
 
-const salt  = bcrypt.genSaltSync(saltRounds);
-const hash1 = bcrypt.hashSync(plainPassword1, salt);
-const hash2 = bcrypt.hashSync(plainPassword2, salt);
+// const plainPassword1 = "HelloWorld";
+// const plainPassword2 = "helloworld";
 
-console.log("Hash 1 -", hash1);
-console.log("Hash 2 -", hash2);
+// const salt  = bcrypt.genSaltSync(saltRounds);
+// const hash1 = bcrypt.hashSync(plainPassword1, salt);
+// const hash2 = bcrypt.hashSync(plainPassword2, salt);
+
+// console.log("Hash 1 -", hash1);
+// console.log("Hash 2 -", hash2);
 
 
 module.exports = app;
