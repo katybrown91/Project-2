@@ -1,0 +1,21 @@
+<h2>Search Friends</h2>
+<form action="/search-friends" method="POST">
+ <input type="text" name="searchfriend" placeholder="username">
+ <input type="submit" name="search">
+</form>
+<hr>
+ {{#each result}}
+ <div class="usercard col-lg-3">
+ <h4 class="usercard-name">{{this.name}}</h4>
+ <p class="usercard-username">@({{this.username}})</p>
+ {{!-- <button class="usercard-button accept"><a href = "my-friends">
+ Accept
+ </a></button> --}}
+ <form action="/my-friends/{{this._id}}" method="POST"><button>Accept</button></form>
+ <button class="usercard-button reject"><a href="/search-friends/delete?friend_id={{_id}}">
+ Reject
+ </a></button>
+ </div>
+ {{/each}}
+
+

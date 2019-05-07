@@ -1,3 +1,7 @@
+nav {
+  background-color: oldlace;
+  padding: 25px; }
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -7,8 +11,7 @@ a {
 
 i#searcg-form {
   all: unset;
-  width: 300px;
-  text-decoration: none; }
+  width: 300px; }
 
 #input-button {
   border: 1px solid black;

@@ -10,6 +10,10 @@ const logger       = require('morgan');
 const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const nodemailer = require('nodemailer');
+//websocket
+//var ws           = require('./ws')
+
 
 //const router = require('../routes/auth');
 //app.use('/', router); 
@@ -88,6 +92,13 @@ app.post('/messages', (req, res) => {
     res.sendStatus(200);
   })
 })
+//websocket
+//app.get('/', function (req, res) {
+  //res.sendfile(__dirname + '/ws.html');
+//})
+//app.listen(3000, function () {
+  //console.log('Example app listening on port 3000!')
+//})
 
 // const bcrypt     = require("bcrypt");
 // const saltRounds = 10;

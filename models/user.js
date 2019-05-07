@@ -4,7 +4,9 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  books : []
+  email: String,
+  books : [],
+  friendsList: [{type: Schema.Types.ObjectId, ref: 'User'}]
 }, {
   timestamps: true
 });
