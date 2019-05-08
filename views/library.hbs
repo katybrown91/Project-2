@@ -1,15 +1,16 @@
-Saved Books
+<h1>Saved Books</h1>
 <br>
 <br>
+<div class = "library-box">
 {{#each books}}
   {{title}}
   <br>
-  {{authors}}
+  {{author}}
   <br>
   {{description}}
   <br>
   <br>
-  {{image}}
+ <img src="{{image}}" />
   <br>
 <button><a href="/library/delete?book_id={{_id}}">DELETE</a></button>
   <br>
@@ -18,3 +19,4 @@ Saved Books
   <br>
   <br>
 {{/each}}
+</div>

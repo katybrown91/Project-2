@@ -92,13 +92,6 @@ router.get("/my-friends", isLoggedIn, (req, res, next) => {
 // });
 
   router.post('/my-friends/:id', isLoggedIn, (req, res, next) => {
-    // let friend = req.body                    
-    // friend.userId = req.session.currentUser._id
-    // friend.id = req.params.id; 
-    // const newFriend = new Friend(friend);  
-
-    // newFriend.save()
-    // let theUser = req.session.currentUser
     User.findById(req.session.currentUser._id)
     .then(theUser => {
       console.log("this is the current user >>>>>>>>>>>>>>", theUser)
@@ -129,5 +122,20 @@ router.get("/my-friends", isLoggedIn, (req, res, next) => {
         next(error);
       });
   });
+
+  //Delete Friends
+  
+  router.get("/my-friends/delete", (req, res, next) => {
+    Friend.findByIdAndRemove(req.query.friend_id)
+      .then((friends) => {
+        res.redirect("/my-friends");
+      })
+      .catch(error => {
+        next(error);
+      });
+  });
+
+  //User Avatar
+
 
 module.exports = router;

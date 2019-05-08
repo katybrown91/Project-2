@@ -1,9 +1,13 @@
-<h2>My Friends</h2>
+<h1>My Friends</h1>
 
 
-<div>
+<div class = "friends-border">
   {{#each friend.friendsList}}
-    <h3>{{this.username}}</h3>
-    <h3>{{this.email}}</h3>
+    <h3>{{username}}</h3>
+    <h3>{{email}}</h3>
+    <h3>{{faveBooks}}</h3>
+    <button><a href="/my-friends/delete?friend_id={{_id}}">
+ Unfriend
+ </a></button>
   {{/each}}
 </div>

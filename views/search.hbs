@@ -1,15 +1,28 @@
-<h2>Search Page</h2>
+<h1>Search Page</h1>
 
 
 {{#each books}}
 <div class = "search-form">
 <form action="/library/{{this.id}}" method="POST">
   <input readonly type="text" value = "{{this.volumeInfo.title}}" name = "title"/>
-  <input readonly type="text" value = "{{this.volumeInfo.author}}" name = "author"/>
-  <input readonly type="textarea" value = "{{this.volumeInfo.description}}" name = "description"/>
+  <br>
+  <br>
+  <input readonly type="text" value = "{{this.volumeInfo.authors}}" name = "author"/>
+<br>  
+<br>
+<textarea readonly type="text" name = "description"   rows="10" cols="67" value="{{this.volumeInfo.description}}">{{this.volumeInfo.description}}</textarea>
+   <!--< <img src="http://books.google.com/books/content?id=tcSMCwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">-->
+   <br>
+   <br>
+   <input style="display: none" type="text" name="image" value="{{this.volumeInfo.imageLinks.thumbnail}}">
+  <img src={{this.volumeInfo.imageLinks.thumbnail}}>
+  <br>
+  <br>
   <div class = "input-button">
-  <input type = "submit"/>
-  </div>
-  <!--<button><a href="/library">Add to library</a></button> -->
-</form>    
+  <button>Add to Library</button>
+  <br>
+  <br>
+  <br>
+</form> 
+</div>   
 {{/each}}

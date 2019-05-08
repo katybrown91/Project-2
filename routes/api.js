@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const axios = require('axios');
 const Book = require('../models/book');
-const user = require('../models/user');
+const User = require('../models/user');
 
 
 
@@ -38,13 +38,69 @@ router.get('/search', (req, res, next) => {
 //Save to library
 
 router.get("/library", isLoggedIn, (req, res, next) => {
+  console.log("the current user while at my library >>>>>>>>>>>>>>>>> ", req.session.currentUser);
   Book.find({userId:req.session.currentUser._id}).then(books=>{
+    // console.log("the books from my library ===============", books)
     res.render("library", {books});
   })
   console.log("At the library")
 });
 
   router.post('/library/:id', isLoggedIn, (req, res, next) => {
+    // console.log("the req body of the book id ---------- ", req.body, req.user);
+    // Book.find({id: req.params.id})
+    // .then(bookFromDb => {
+    //   console.log("the book from the DB =========== ", bookFromDb)
+    //   if(bookFromDb) {
+    //     user.findById(req.session.currentUser._id)
+    //     .then(theUser => {
+    //       theUser.faveBooks.push(bookFromDb._id)
+    //       theUser.save()
+    //       .then(updatedUser => {
+    //         console.log("the updated user after adding book >>>>>>>>>>>>>> ", updatedUser);
+    //         res.redirect('/library');
+    //       })
+    //       .catch(err => {
+    //         next(err);
+    //       })
+    //     })
+    //     .catch(err => {
+    //       next(err);
+    //     })
+    //   } else {
+    //     let book = req.body 
+    //     book.id = req.params.id; 
+    //     const newBook = new Book(book); 
+    //     newBook.save()
+    //     .then(bookFromDb => {
+    //       user.findById(req.session.currentUser._id)
+    //       .then(theUser => {
+    //         theUser.faveBooks.push(bookFromDb._id)
+    //         theUser.save()
+    //         .then(updatedUser => {
+    //           console.log("the updated user after adding book to the DB >>>>>>>>>>>>>> ", updatedUser);
+    //           res.redirect('/library');
+    //         })
+    //         .catch(err => {
+    //           next(err);
+    //         })
+    //       })
+    //       .catch(err => {
+    //         next(err);
+    //       })
+    //     })
+    //     .catch(err => {
+    //       next(err);
+    //     })
+    //   }
+    // })
+    // .catch(err => {
+    //   next(err);
+    // })
+
+
+
+
     let book = req.body                    
     book.userId = req.session.currentUser._id
     book.id = req.params.id; 

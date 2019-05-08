@@ -1,3 +1,29 @@
+<div class = "index-page">
 <h1>Hello!</h1>
 <p>Welcome!</p>
 
+<form action="/login" method="POST" id="form">
+  <h2>Login</h2>
+
+  <label for="username">Username</label>
+  <input value="katy" type="text" name="username">
+
+  <label for="password">Password</label>
+  <input value="brown" type="password" name="password">
+
+  {{#if errorMessage }}
+    <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+
+  <button>Sign in</button>
+
+  <p class="account-message">
+    Don't have an account? <a href="/signup">Sign up</a>
+  </p>
+</form>
+
+<image src = "./images/background-book.png"  alt = "open-book">
+</div>
+
+
+ 

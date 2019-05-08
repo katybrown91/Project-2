@@ -5,8 +5,13 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  books : [],
-  friendsList: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  faveBooks : [{type: Schema.Types.ObjectId, ref: "Book"}],
+  friendsList: [{type: Schema.Types.ObjectId, ref: 'User'}],
+  userImage : {
+    type:String,
+    default:'default.png'
+    }
+   
 }, {
   timestamps: true
 });

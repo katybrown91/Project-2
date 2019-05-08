@@ -11,8 +11,7 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const nodemailer = require('nodemailer');
-//websocket
-//var ws           = require('./ws')
+
 
 
 //const router = require('../routes/auth');

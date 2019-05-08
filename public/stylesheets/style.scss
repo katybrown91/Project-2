@@ -1,22 +1,50 @@
 nav{
-  background-color: oldlace;
-  padding: 25px;
+  background-image: url('/images/paper.png');;
+  padding: 5%;
+}
+
+.avatar{
+text-align: right;
+}
+
+h1{
+  text-align: center;
 }
 
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: oldlace;
+  color: black;
+  border-style: inset;
+  border-color: #00B7FF;
+  border-radius: 3em;
 }
 
 a {
-  color: #00B7FF;
+  color: rgb(53, 53, 161);
 }
- i#searcg-form {
+ .search-form {
    all: unset;
-   width: 300px;
   
  }
+
+ .library-box, .friends-border{
+border-style: solid;
+border-color: rgb(168, 225, 248);
+ }
+
+ 
  #input-button{
    border: 1px solid black;
    padding: 5px;
  }
+
+ .index-page{
+   text-align: center;
+ }
+
+ input{
+   width: 40em;
+ }
+
