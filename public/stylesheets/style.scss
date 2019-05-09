@@ -31,11 +31,16 @@ a {
 }
  .search-form {
    all: unset;
+   font-size: 2vw;
  }
 
  .library-box, .friends-border{
 border-style: inset;
 border-color: rgb(168, 225, 248);
+ }
+
+ .friends-border{
+   font-size: 2vw;
  }
 
  

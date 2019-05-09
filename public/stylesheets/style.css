@@ -25,11 +25,15 @@ a {
   color: #3535a1; }
 
 .search-form {
-  all: unset; }
+  all: unset;
+  font-size: 2vw; }
 
 .library-box, .friends-border {
   border-style: inset;
   border-color: #a8e1f8; }
+
+.friends-border {
+  font-size: 2vw; }
 
 #input-button {
   border: 1vh solid black;
