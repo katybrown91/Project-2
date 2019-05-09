@@ -9,8 +9,10 @@
     {{!-- <button><a href="/my-friends/delete?friend_id={{_id}}">
  Unfriend
  </a></button> --}}
+ <div class = "friend-form">
   <form action="/delete-friend/{{_id}}" method="POST">
    <button>Unfriend</button> 
   </form>
+  </div>
   {{/each}}
 </div>

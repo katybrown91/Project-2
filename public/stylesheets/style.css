@@ -1,6 +1,9 @@
 nav {
   background-image: url("/images/paper.png");
-  padding: 10vh; }
+  padding: 10vh;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
 
 .avatar {
   text-align: right; }
@@ -35,6 +38,9 @@ a {
   text-align: center; }
 
 input {
+  width: 40vh; }
+
+.friend-form {
   width: 40vh; }
 
 /*# sourceMappingURL=style.css.map */
