@@ -47,8 +47,60 @@ router.get("/library", isLoggedIn, (req, res, next) => {
 });
 
   router.post('/library/:id', isLoggedIn, (req, res, next) => {
-      console.log("the updated user after adding book >>>>>>>>>>>>>> ", updatedUser);
-      
+    // console.log("the req body of the book id ---------- ", req.body, req.user);
+    // Book.find({id: req.params.id})
+    // .then(bookFromDb => {
+    //   console.log("the book from the DB =========== ", bookFromDb)
+    //   if(bookFromDb) {
+    //     user.findById(req.session.currentUser._id)
+    //     .then(theUser => {
+    //       theUser.faveBooks.push(bookFromDb._id)
+    //       theUser.save()
+    //       .then(updatedUser => {
+    //         console.log("the updated user after adding book >>>>>>>>>>>>>> ", updatedUser);
+    //         res.redirect('/library');
+    //       })
+    //       .catch(err => {
+    //         next(err);
+    //       })
+    //     })
+    //     .catch(err => {
+    //       next(err);
+    //     })
+    //   } else {
+    //     let book = req.body 
+    //     book.id = req.params.id; 
+    //     const newBook = new Book(book); 
+    //     newBook.save()
+    //     .then(bookFromDb => {
+    //       user.findById(req.session.currentUser._id)
+    //       .then(theUser => {
+    //         theUser.faveBooks.push(bookFromDb._id)
+    //         theUser.save()
+    //         .then(updatedUser => {
+    //           console.log("the updated user after adding book to the DB >>>>>>>>>>>>>> ", updatedUser);
+    //           res.redirect('/library');
+    //         })
+    //         .catch(err => {
+    //           next(err);
+    //         })
+    //       })
+    //       .catch(err => {
+    //         next(err);
+    //       })
+    //     })
+    //     .catch(err => {
+    //       next(err);
+    //     })
+    //   }
+    // })
+    // .catch(err => {
+    //   next(err);
+    // })
+
+
+
+
     let book = req.body                    
     book.userId = req.session.currentUser._id
     book.id = req.params.id; 
