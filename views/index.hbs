@@ -1,21 +1,10 @@
 <div class = "index-page">
 <h1>Hello!</h1>
-<p>Welcome!</p>
+<p>Welcome to the book sharer!</p>
 
-<form action="/login" method="POST" id="form">
-  <h2>Login</h2>
-
-  <label for="username">Username</label>
-  <input value=" " type="text" name="username">
-
-  <label for="password">Password</label>
-  <input value="" type="password" name="password">
-
-  {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
-
-  <button>Sign in</button>
+<div class = "login-link">
+ <a href = "/login">Login</a>
+  </div>
 
   <p class="account-message">
     Don't have an account? <a href="/signup">Sign up</a>

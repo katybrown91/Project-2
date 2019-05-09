@@ -8,6 +8,9 @@ nav {
 .avatar {
   text-align: right; }
 
+.login-link {
+  font-size: 5vh; }
+
 h1 {
   text-align: center; }
 
@@ -27,7 +30,7 @@ a {
   all: unset; }
 
 .library-box, .friends-border {
-  border-style: solid;
+  border-style: inset;
   border-color: #a8e1f8; }
 
 #input-button {
