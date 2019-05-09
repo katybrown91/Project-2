@@ -29,7 +29,8 @@ a {
 
 .library-box, .friends-border {
   border-style: inset;
-  border-color: #a8e1f8; }
+  border-color: #a8e1f8;
+  border-width: 1vw; }
 
 #input-button {
   border: 1vh solid black;
