@@ -31,12 +31,17 @@ a {
 }
  .search-form {
    all: unset;
+   font-size: 1vh;
   
  }
 
  .library-box, .friends-border{
 border-style: inset;
 border-color: rgb(168, 225, 248);
+ }
+
+ .library-box{
+   font-size: 1vh;
  }
 
  
