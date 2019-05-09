@@ -32,6 +32,14 @@ a {
   border-style: inset;
   border-color: #a8e1f8; }
 
+@media screen and (min-width: 601px) {
+  div.friends-border {
+    font-size: 20px; } }
+
+@media screen and (max-width: 600px) {
+  div.friends-border {
+    font-size: 10px; } }
+
 #input-button {
   border: 1vh solid black;
   padding: 5vh; }
