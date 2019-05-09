@@ -3,8 +3,9 @@
 
 <div class = "friends-border">
   {{#each friend.friendsList}}
-    <h4>{{username}}</h4>
-    <p>{{email}}</p>
+    <b>{{username}}</b>
+    <br>
+    {{email}}
     {{!--<h3>{{faveBooks}}</h3> --}}
  <div class = "friend-form">
   <form action="/delete-friend/{{_id}}" method="POST">
