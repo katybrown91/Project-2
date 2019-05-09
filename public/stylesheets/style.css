@@ -1,9 +1,6 @@
 nav {
   background-image: url("/images/paper.png");
-  padding: 10vh;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; }
+  padding: 10vh; }
 
 .avatar {
   text-align: right; }
@@ -12,11 +9,12 @@ nav {
   font-size: 5vh; }
 
 h1 {
-  text-align: center; }
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace; }
 
 body {
   padding: 5vh;
-  font: 3vh "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 3vh 'Courier New', Courier, monospace;
   background-color: oldlace;
   color: black;
   border-style: inset;
