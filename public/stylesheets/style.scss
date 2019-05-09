@@ -1,6 +1,6 @@
 nav{
   background-image: url('/images/paper.png');;
-  padding: 5em;
+  padding: 10vh;
 }
 
 .avatar{
@@ -12,13 +12,13 @@ h1{
 }
 
 body {
-  padding: 5em;
-  font: 1em "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 5vh;
+  font: 3vh "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: oldlace;
   color: black;
   border-style: inset;
   border-color: #00B7FF;
-  border-radius: 3em;
+  border-radius: 5vh;
 }
 
 a {
@@ -36,8 +36,8 @@ border-color: rgb(168, 225, 248);
 
  
  #input-button{
-   border: 1px solid black;
-   padding: 5px;
+   border: 1vh solid black;
+   padding: 5vh;
  }
 
  .index-page{
@@ -45,6 +45,6 @@ border-color: rgb(168, 225, 248);
  }
 
  input{
-   width: 40em;
+   width: 40vh;
  }
 
