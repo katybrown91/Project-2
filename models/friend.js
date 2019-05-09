@@ -5,7 +5,6 @@ const friendSchema = new Schema({
   username: String,
   email: String,
   //faveBooks : [{type: Schema.Types.ObjectId, ref: "Book"}]
-  faveBooks: []
 
 });
 

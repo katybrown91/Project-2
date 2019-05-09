@@ -7,11 +7,6 @@ const userSchema = new Schema({
   email: String,
   faveBooks : [{type: Schema.Types.ObjectId, ref: "Book"}],
   friendsList: [{type: Schema.Types.ObjectId, ref: 'User'}],
-  userImage : {
-    type:String,
-    default:'default.png'
-    }
-   
 }, {
   timestamps: true
 });

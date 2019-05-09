@@ -18,7 +18,10 @@ const nodemailer = require('nodemailer');
 //app.use('/', router); 
 
 mongoose
-  .connect('mongodb://localhost/project-two', {useNewUrlParser: true})
+  .connect('mongodb+srv://katy:katy@cluster0-xsf2p.mongodb.net/test?retryWrites=true', 
+  {useNewUrlParser: true})
+
+  //.connect('mongodb://localhost/project-two', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

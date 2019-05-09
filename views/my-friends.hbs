@@ -5,9 +5,12 @@
   {{#each friend.friendsList}}
     <h3>{{username}}</h3>
     <h3>{{email}}</h3>
-    <h3>{{faveBooks}}</h3>
-    <button><a href="/my-friends/delete?friend_id={{_id}}">
+    {{!--<h3>{{faveBooks}}</h3> --}}
+    {{!-- <button><a href="/my-friends/delete?friend_id={{_id}}">
  Unfriend
- </a></button>
+ </a></button> --}}
+  <form action="/delete-friend/{{_id}}" method="POST">
+   <button>Unfriend</button> 
+  </form>
   {{/each}}
 </div>

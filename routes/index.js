@@ -8,7 +8,7 @@ const Friend = require("../models/friend");
 router.get("/message", (req, res, next) => {
   res.render("message");
 });
-console.log("Hello!");
+//console.log("Hello!");
 
 router.post("/send-email", (req, res, next) => {
   let { email, subject, message } = req.body;
@@ -41,7 +41,7 @@ router.post("/send-email", (req, res, next) => {
 router.get("/search-friends", (req, res, next) => {
   res.render("search-friends");
 });
-console.log("Hello!");
+//console.log("Hello!");
 router.get("/search-friends", isLoggedIn, function(req, res) {
   Friend.find({ username: { $ne: req.user.username } }, function(err, result) {
     if (err) throw err;
@@ -52,7 +52,7 @@ router.get("/search-friends", isLoggedIn, function(req, res) {
 });
 
 router.post("/search-friends", isLoggedIn, function(req, res) {
-  console.log('in this',req.session.currentUser, res.body)
+  //console.log('in this',req.session.currentUser, res.body)
   var searchfriend = req.body.searchfriend;
   if (searchfriend == req.session.currentUser.username) {
     searchfriend = null;
@@ -66,7 +66,7 @@ router.post("/search-friends", isLoggedIn, function(req, res) {
 });
 
 function isLoggedIn(req, res, next) {
-  console.log(req.session.currentUser);
+  //console.log(req.session.currentUser);
   if (req.session.currentUser) {
     next();
   } else {
@@ -77,12 +77,12 @@ function isLoggedIn(req, res, next) {
 //Add Friends
 
 router.get("/my-friends", isLoggedIn, (req, res, next) => {
-  console.log("My friends")
+  //console.log("My friends")
   // Friend.find({userId:req.session.currentUser._id}).then(friend=>{
     User.findById(req.session.currentUser._id).populate('friendsList')
     .then(friend => {
 
-      console.log("the user info for friends route ================ ", friend)
+      //console.log("the user info for friends route ================ ", friend)
       res.render("my-friends", {friend});
     })
     .catch(err => {
@@ -94,7 +94,7 @@ router.get("/my-friends", isLoggedIn, (req, res, next) => {
   router.post('/my-friends/:id', isLoggedIn, (req, res, next) => {
     User.findById(req.session.currentUser._id)
     .then(theUser => {
-      console.log("this is the current user >>>>>>>>>>>>>>", theUser)
+      //console.log("this is the current user >>>>>>>>>>>>>>", theUser)
         theUser.friendsList.push(req.params.id)
         theUser.save()
         .then(newSavedFriend => {
@@ -125,17 +125,32 @@ router.get("/my-friends", isLoggedIn, (req, res, next) => {
 
   //Delete Friends
   
-  router.get("/my-friends/delete", (req, res, next) => {
-    Friend.findByIdAndRemove(req.query.friend_id)
-      .then((friends) => {
-        res.redirect("/my-friends");
+  // router.get("/my-friends/delete", (req, res, next) => {
+  //   console.log("Unfriend!", req.query.friendId)
+  //   Friend.findByIdAndRemove(req.query.friend_id)
+  //     .then((friends) => {
+  //       res.redirect("/my-friends");
+  //     })
+  //     .catch(error => {
+  //       next(error);
+  //     });
+  // });
+
+  router.post("/delete-friend/:id", isLoggedIn, (req, res, next)=>{
+    console.log("Bye", req.session.currentUser, req.params, req.params.id)
+    User.findById(req.session.currentUser._id).then(me=>{ //found myself and my friendList 
+      console.log('me',me)
+      let index = me.friendsList.indexOf(req.params.id)
+      me.friendsList.splice(index,1)
+      me.save(function(err){
+        if(!err){
+          res.redirect('back')
+        }
       })
-      .catch(error => {
-        next(error);
-      });
+    }).catch(err=>console.log(err))
   });
 
-  //User Avatar
+  
 
 
 module.exports = router;
