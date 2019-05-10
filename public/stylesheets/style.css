@@ -57,11 +57,11 @@ a {
 
 @media screen and (min-width: 601px) {
   textarea {
-    width: 300px; } }
+    width: 350px; } }
 
 @media screen and (max-width: 600px) {
   textarea {
-    width: 150px; } }
+    width: 250px; } }
 
 .friend-form {
   width: 40vh; }
