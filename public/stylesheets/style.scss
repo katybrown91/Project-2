@@ -61,9 +61,18 @@ border-color: rgb(168, 225, 248);
    text-align: center;
  }
 
- input{
-   width: 40vh;
- }
+ @media screen and (min-width: 601px) {
+  input {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  input {
+    width: 70px;
+  }
+}
+
 
  .friend-form{
    width: 40vh;

@@ -47,8 +47,13 @@ a {
 .index-page {
   text-align: center; }
 
-input {
-  width: 40vh; }
+@media screen and (min-width: 601px) {
+  input {
+    width: 300px; } }
+
+@media screen and (max-width: 600px) {
+  input {
+    width: 10px; } }
 
 .friend-form {
   width: 40vh; }
