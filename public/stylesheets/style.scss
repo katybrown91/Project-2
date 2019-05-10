@@ -69,7 +69,20 @@ border-color: rgb(168, 225, 248);
 
 @media screen and (max-width: 600px) {
   input {
-    width: 70px;
+    width: 150px;
+  }
+}
+
+
+@media screen and (min-width: 601px) {
+  textarea {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  textarea {
+    width: 150px;
   }
 }
 

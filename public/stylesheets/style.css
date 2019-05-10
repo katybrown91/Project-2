@@ -53,7 +53,15 @@ a {
 
 @media screen and (max-width: 600px) {
   input {
-    width: 10px; } }
+    width: 150px; } }
+
+@media screen and (min-width: 601px) {
+  textarea {
+    width: 300px; } }
+
+@media screen and (max-width: 600px) {
+  textarea {
+    width: 150px; } }
 
 .friend-form {
   width: 40vh; }
